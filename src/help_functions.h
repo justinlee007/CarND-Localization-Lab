@@ -28,12 +28,12 @@ class help_functions {
     return x * x;
   }
 
-  /*****************************************************************************
-   * normpdf(X,mu,sigma) computes the probability function at values x using the
+  /**
+   * Computes the probability function at values x using the
    * normal distribution with mean mu and standard deviation std. x, mue and
    * sigma must be scalar! The parameter std must be positive.
    * The normal pdf is y=f(x;mu,std)= 1/(std*sqrt(2pi)) e[ -(x−mu)^2 / 2*std^2 ]
-  *****************************************************************************/
+   */
   float normpdf(float x, float mu, float std) {
     return (ONE_OVER_SQRT_2PI / std) * exp(-0.5 * squared((x - mu) / std));
   }

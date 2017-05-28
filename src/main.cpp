@@ -6,8 +6,6 @@
 
 #include <iostream>
 #include <vector>
-#include <fstream>
-#include <sstream>
 #include "measurement_package.h"
 #include "map.h"
 #include "help_functions.h"
@@ -56,11 +54,42 @@ int main() {
        *  Coding quiz 1: just print out map infos and measurement package:     *
   ******************************************************************************/
 
-  /////////////
-  //Add code://
-  /////////////
-  printf("*************************************************\n");
-  printf("Please print out map and measurement information!\n");
-  printf("*************************************************\n");
+  ////////////
+  //Results://
+  ////////////
+
+  cout << "..................................................." << endl;
+  cout << "..................................................." << endl;
+  cout << "............----> Coding quiz 1  <----............." << endl;
+  cout << "..................................................." << endl;
+  cout << "..................................................." << endl;
+
+  //print out map:
+  cout << "Print out the map landmarks:" << endl;
+
+  for (int i = 0; i < map_1d.landmark_list.size(); i++) {
+    cout << "ID: " << map_1d.landmark_list[i].id_i << "\t" << "value in x: " << map_1d.landmark_list[i].x_f << endl;
+  }
+  cout << "..................................................." << endl;
+  cout << "..................................................." << endl;
+
+  //print out the controls and the observations:
+  cout << "Print out the measurement packages:" << endl;
+
+  for (int i = 0; i < measurement_pack_list.size(); i++) {
+
+    cout << "Step " << i << " includes the move " << measurement_pack_list[i].control_s_.delta_x_f << "[m] in driving direction " << endl;
+
+    //run over observations:
+    if (measurement_pack_list[i].observation_s_.distance_f.size() < 1) {
+      cout << "	No observations in step " << i << endl;
+    } else {
+      cout << "	Number of Observations in current step: " << measurement_pack_list[i].observation_s_.distance_f.size() << endl;
+      for (int j = 0; j < measurement_pack_list[i].observation_s_.distance_f.size(); j++) {
+        cout << "	Distance to a landmark: " << measurement_pack_list[i].observation_s_.distance_f[j] << " m" << endl;
+      }
+    }
+    cout << "..................................................." << endl;
+  }
   return 0;
 }

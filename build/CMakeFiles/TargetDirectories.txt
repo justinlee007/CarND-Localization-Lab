@@ -1,3 +1,0 @@
-/Users/jel/Documents/Personal/School/CarND/term2/CarND-Localization-Lab/build/CMakeFiles/rebuild_cache.dir
-/Users/jel/Documents/Personal/School/CarND/term2/CarND-Localization-Lab/build/CMakeFiles/edit_cache.dir
-/Users/jel/Documents/Personal/School/CarND/term2/CarND-Localization-Lab/build/CMakeFiles/CarND_Localization_Lab.dir
