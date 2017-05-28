@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jel/Documents/Personal/School/CarND/term2/CarND-Localization-Lab/src/help_functions.h
+math.h
+-
+iostream
+-
+vector
+-
+fstream
+-
+sstream
+-
+iomanip
+-
+measurement_package.h
+/Users/jel/Documents/Personal/School/CarND/term2/CarND-Localization-Lab/src/measurement_package.h
+
+/Users/jel/Documents/Personal/School/CarND/term2/CarND-Localization-Lab/src/main.cpp
+iostream
+-
+vector
+-
+fstream
+-
+sstream
+-
+measurement_package.h
+/Users/jel/Documents/Personal/School/CarND/term2/CarND-Localization-Lab/src/measurement_package.h
+map.h
+/Users/jel/Documents/Personal/School/CarND/term2/CarND-Localization-Lab/src/map.h
+help_functions.h
+/Users/jel/Documents/Personal/School/CarND/term2/CarND-Localization-Lab/src/help_functions.h
+
+/Users/jel/Documents/Personal/School/CarND/term2/CarND-Localization-Lab/src/map.h
+
+/Users/jel/Documents/Personal/School/CarND/term2/CarND-Localization-Lab/src/measurement_package.h
+vector
+-
+
