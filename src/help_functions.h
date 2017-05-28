@@ -20,10 +20,10 @@ using namespace std;
 class help_functions {
  public:
 
-  //definition of one over square root of 2*pi:
+  // definition of one over square root of 2*pi:
   float ONE_OVER_SQRT_2PI = 1 / sqrt(2 * M_PI);
 
-  //definition square:
+  // definition square:
   float squared(float x) {
     return x * x;
   }
@@ -38,27 +38,27 @@ class help_functions {
     return (ONE_OVER_SQRT_2PI / std) * exp(-0.5 * squared((x - mu) / std));
   }
 
-  //function to normalize a vector:
+  // function to normalize a vector:
   vector<float> normalize_vector(vector<float> inputVector) {
 
-    //declare sum:
+    // declare sum:
     float sum = 0.0f;
 
-    //declare and resize output vector:
+    // declare and resize output vector:
     vector<float> outputVector;
     outputVector.resize(inputVector.size());
 
-    //estimate the sum:
+    // estimate the sum:
     for (unsigned int i = 0; i < inputVector.size(); ++i) {
       sum += inputVector[i];
     }
 
-    //normalize with sum:
+    // normalize with sum:
     for (unsigned int i = 0; i < inputVector.size(); ++i) {
       outputVector[i] = inputVector[i] / sum;
     }
 
-    //return normalized vector:
+    // return normalized vector:
     return outputVector;
   }
 
@@ -75,31 +75,31 @@ class help_functions {
       return false;
     }
 
-    //declare single line of map file:
+    // declare single line of map file:
     string line_map;
 
-    //run over each single line:
+    // run over each single line:
     while (getline(in_file_map, line_map)) {
 
       istringstream iss_map(line_map);
 
-      //declare landmark values and ID:
+      // declare landmark values and ID:
       float landmark_x_f;
       int id_i;
 
-      //read data from current line to values::
+      // read data from current line to values::
       iss_map >> id_i;
       iss_map >> landmark_x_f;
 
 
-      //declare single_landmark:
+      // declare single_landmark:
       map::single_landmark_s single_landmark_temp;
 
-      //set values
+      // set values
       single_landmark_temp.id_i = id_i;
       single_landmark_temp.x_f = landmark_x_f;
 
-      //push_back in landmark list of map_1d:
+      // push_back in landmark list of map_1d:
       map.landmark_list.push_back(single_landmark_temp);
 
     }
@@ -111,43 +111,43 @@ class help_functions {
    * @param filename Name of file containing measurement  data.
    */
   inline bool read_measurement_data(string filename_control, string filename_obs, vector<MeasurementPackage> &measurement_pack_list) {
-    //get file of measurements:
+    // get file of measurements:
     ifstream in_file_control(filename_control.c_str(), ifstream::in);
     if (!in_file_control) {
       return false;
     }
-    //declare single line of measurement file:
+    // declare single line of measurement file:
     string line;
 
     int count = 1;
 
-    //run over each single line:
+    // run over each single line:
     while (getline(in_file_control, line)) {
 
-      //declare measurement package:
+      // declare measurement package:
       MeasurementPackage meas_package;
 
       istringstream iss(line);
 
-      //declare position values:
+      // declare position values:
       float delta_x_f;
 
-      //read data from line to values:
+      // read data from line to values:
       iss >> delta_x_f;
 
 
-      //set control information:
+      // set control information:
       meas_package.control_s_.delta_x_f = delta_x_f;
 
-      //read observations for each control information:
+      // read observations for each control information:
       char str_obs[1024];
 
-      //define file name of observations for current control/position info:
+      // define file name of observations for current control/position info:
       sprintf(str_obs, "%sobservations_%06i.txt", filename_obs.c_str(), count);
       string in_file_name_observation = string(str_obs);
 
 
-      //get file of observations:
+      // get file of observations:
       ifstream in_file_observation(in_file_name_observation.c_str(), ifstream::in);
       if (!in_file_observation) {
         return false;
@@ -155,51 +155,58 @@ class help_functions {
 
       string line_obs;
 
-      //run over each single line:
+      // run over each single line:
       while (getline(in_file_observation, line_obs)) {
 
         istringstream iss_obs(line_obs);
 
-        //declare observation values:
+        // declare observation values:
         float distance_f;
 
-        //read data from line to values:
+        // read data from line to values:
         iss_obs >> distance_f;
 
-        //set observation information:
+        // set observation information:
         meas_package.observation_s_.distance_f.push_back(distance_f);
       }
-      //push_back single package in measurement list:
+      // push_back single package in measurement list:
       measurement_pack_list.push_back(meas_package);
 
-      //increase counter for observation files:
+      // increase counter for observation files:
       count++;
     }
     return true;
   }
 
+  /**
+   * print/compare results:
+   *
+   * @param filename_gt
+   * @param result_vec
+   * @return
+   */
   inline bool compare_data(string filename_gt, vector<float> &result_vec) {
     /*****************************************************************************
      *  print/compare results:												   *
      *****************************************************************************/
-    //get GT data:
-    //define file name of map:
+    // get GT data:
+    // define file name of map:
 
     vector<float> gt_vec;
 
-    //get file of map:
+    // get file of map:
     ifstream in_file_gt(filename_gt.c_str(), ifstream::in);
 
-    //declare single line of map file:
+    // declare single line of map file:
     string line_gt;
 
-    //run over each single line:
+    // run over each single line:
     while (getline(in_file_gt, line_gt)) {
 
       istringstream iss_gt(line_gt);
       float gt_value;
 
-      //read data from current line to values::
+      // read data from current line to values::
       iss_gt >> gt_value;
       gt_vec.push_back(gt_value);
 
