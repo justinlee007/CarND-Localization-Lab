@@ -32,12 +32,14 @@ class bayesianFilter {
 
  private:
 
-/////private members:
-
+  // flag, if filter is initialized:
   bool is_initialized_;
 
+  // precision of control information:
   float control_std;
 
+  // initial belief of state x:
+  vector<float> bel_x_init;
 };
 
 #endif /* BAYESIANFILTER_H_ */
