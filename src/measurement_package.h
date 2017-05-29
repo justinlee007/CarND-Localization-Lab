@@ -6,15 +6,17 @@
 #define MEASUREMENT_PACKAGE_H_
 #include <vector>
 
+using namespace std;
+
 class MeasurementPackage {
  public:
 
   struct control_s {
-    float delta_x_f;     // move to successor in x position
+    float delta_x_f; // move to successor in x position
   };
 
   struct observation_s {
-    std::vector<float> distance_f;  // distance to observed landmark
+    vector<float> distance_f; // distance to observed landmark
   };
 
   control_s control_s_;
