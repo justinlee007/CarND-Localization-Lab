@@ -40,23 +40,23 @@ void bayesianFilter::process_measurement(const MeasurementPackage &measurements,
   if (!is_initialized_) {
 
     //TODO: run over map, all map_1d.lanmark_list values:
-    //for (int l=0; l< ...){
+    for (int l = 0; l < map_1d.landmark_list.size(); l++) {
 
-    //TODO: get landmark l from map
-
-
-    //check, if landmark position x fits in map [0,100]:
-    //if(... ){
-
-    //TODO: get landmark x position * use help_function.h for reference
-
-    // ______/---\_____ << initial believe state at a landmark
-
-    //TODO: set belief to 1 at position and +/- from position:
+      //TODO: get landmark l from map
 
 
-    //	} //end if
-    //}//end for
+      //check, if landmark position x fits in map [0,100]:
+      //if(... ){
+
+      //TODO: get landmark x position * use help_function.h for reference
+
+      // ______/---\_____ << initial believe state at a landmark
+
+      //TODO: set belief to 1 at position and +/- from position:
+
+
+      //	} //end if
+    }//end for
 
     //TODO: normalize initial believe * use help_function.h for reference
     //bel_x_init =
