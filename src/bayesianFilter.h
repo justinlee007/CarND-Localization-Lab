@@ -19,8 +19,10 @@ using namespace std;
 
 class bayesianFilter {
  public:
+
   // constructor:
   bayesianFilter();
+
   // deconstructor:
   virtual ~bayesianFilter();
 

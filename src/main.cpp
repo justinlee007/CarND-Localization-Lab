@@ -9,8 +9,8 @@
 #include "measurement_package.h"
 #include "map.h"
 #include "help_functions.h"
-
 #include "bayesianFilter.h"
+
 using namespace std;
 
 int main() {

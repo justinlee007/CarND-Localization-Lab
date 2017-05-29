@@ -7,7 +7,6 @@
 #include "bayesianFilter.h"
 #include <iostream>
 #include <algorithm>
-#include <vector>
 
 // constructor:
 bayesianFilter::bayesianFilter() {
@@ -94,9 +93,8 @@ void bayesianFilter::process_measurement(const MeasurementPackage &measurements,
       float distance_ij = pose_i - pose_j;
 
       // transition probabilities:
-      float transition_prob = helpers.normpdf(distance_ij,
-                                              controls.delta_x_f,
-                                              control_std);
+      float transition_prob = helpers.normpdf(distance_ij, controls.delta_x_f, control_std);
+
       // motion model:
       posterior_motion += transition_prob * bel_x_init[j];
     }

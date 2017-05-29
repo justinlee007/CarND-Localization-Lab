@@ -1,6 +1,7 @@
 /*
  * map.h
  */
+
 #ifndef MAP_H_
 #define MAP_H_
 
@@ -9,6 +10,7 @@ using namespace std;
 class map {
 
  public:
+
   // definition of single landmark:
   struct single_landmark_s {
     int id_i;
