@@ -20,7 +20,7 @@ int main() {
    *****************************************************************************/
 
   // define example: 01, 02, 03, 04
-  string example_string = "01";
+  string example_string = "03";
 
   // declare map:
   map map_1d;

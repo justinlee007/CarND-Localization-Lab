@@ -40,6 +40,9 @@ class bayesianFilter {
   // precision of control information:
   float control_std;
 
+  // precision of observations as standard deviation:
+  float observation_std;
+
   // initial belief of state x:
   vector<float> bel_x_init;
 };
